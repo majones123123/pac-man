@@ -17,3 +17,11 @@ FARGER = [RED, YELLOW, GREEN, GREEN_DARK, CYAN, BLUE, PURPLE, MAGENTA, ORANGE]
 FPS = 60
 
 TILE_SIZE = 32
+
+RETNINGER= {
+    "start":0,
+    "høyre":2,
+    "venstre":4,
+    "opp":6,
+    "ned":8
+}

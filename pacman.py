@@ -21,10 +21,15 @@ class PacMan:
     def __init__(self, row, col):
         self.row = row
         self.col = col
-
-        self.frames_idle = self.getImageSpriteList(0, 0, 4)
+        
+        frames_start = self.getImageSpriteList(32, 0, 1)
+        frames_høyre = self.getImageSpriteList(0,16,2)
+        frames_venstre = self.getImageSpriteList(0,32,2)
+        frames_opp = self.getImageSpriteList(0,48,2)
+        frames_ned = self.getImageSpriteList(0,64,2)
+        
         # Bildet vi skal vise til å starte med er idle:
-        self.frames = self.frames_idle
+        self.frames = frames_start*2+frames_høyre+frames_venstre+frames_opp+frames_ned
         # Om vi vil ha animasjon som går gjennom frames:
         self.current_frame = 0
 
