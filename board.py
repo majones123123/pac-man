@@ -1,6 +1,5 @@
 import pygame as pg
 from constants import *
-
 class Board:
     def __init__(self):
         self.grid = [
@@ -31,8 +30,12 @@ class Board:
         for y, row in enumerate(self.grid):
             for x, tile in enumerate(row):
                 rect = pg.Rect(x * TILE_SIZE, y * TILE_SIZE, TILE_SIZE, TILE_SIZE)
+                food = pg.Rect(x * TILE_SIZE + TILE_SIZE / 2 - 2, y * TILE_SIZE + TILE_SIZE / 2 - 2, 4, 4)
                 if tile == '#':
                     pg.draw.rect(surface, DARK_BLUE, rect, border_radius=5)
+                
+                if tile == '.':
+                    pg.draw.rect(surface, ORANGE, food, border_radius=10)
 
 
     def is_road(self, x: int, y: int) -> bool:
