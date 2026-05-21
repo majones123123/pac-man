@@ -7,8 +7,6 @@ class PacMan:
     IMAGE_FILE = Path(__file__).parent / "sprites" / "pacman2.png"
 
     def getImageSpriteList(self, x_start, y_start, num_frames) -> list[pg.Surface]:
-        self.retning=RETNINGER_FRAMES["start"]
-        self.fremtid_retning=None
         full_image = pg.image.load(self.IMAGE_FILE)
         frame_width = 16
         
@@ -27,6 +25,9 @@ class PacMan:
 
         self.x = col*TILE_SIZE
         self.y = row*TILE_SIZE
+
+        self.retning=RETNINGER_FRAMES["start"]
+        self.fremtid_retning=None
 
         self.board=board
 
@@ -68,6 +69,14 @@ class PacMan:
             self.current_frame-=1
     
     def move(self):
-        pass
-        
-
+        xmove=RETNINGER[self.retning][1]
+        ymove=RETNINGER[self.retning][0]
+        if self.x % TILE_SIZE == 0 and self.y % TILE_SIZE == 0:
+            self.col=self.x//TILE_SIZE
+            self.row=self.y//TILE_SIZE
+            if self.board[self.row+xmove][self.col+ymove] != "#":
+                self.y += ymove
+                self.x += xmove
+        else:
+            self.y += ymove
+            self.x += xmove

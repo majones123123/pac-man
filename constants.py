@@ -27,6 +27,7 @@ RETNINGER_FRAMES= {
 }
 
 RETNINGER = {
+    "start":[0,0],
     "høyre":[0,1],
     "venstre":[0,-1],
     "opp":[-1,0],
