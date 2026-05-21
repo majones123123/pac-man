@@ -26,7 +26,7 @@ class PacMan:
         self.x = col*TILE_SIZE
         self.y = row*TILE_SIZE
 
-        self.retning=RETNINGER_FRAMES["start"]
+        self.retning="start"
         self.fremtid_retning=None
 
         self.board=board
@@ -50,7 +50,7 @@ class PacMan:
     def draw(self, surface):
 
         # Få bildet fra en liste av bilder (om du vil bruke animasjon/sprites):
-        current_frame_image = self.frames[self.current_frame%2+self.retning]
+        current_frame_image = self.frames[self.current_frame%2+RETNINGER_FRAMES[self.retning]]
         
         # Speiler bildet hvis det trengs:
         if self.venstre:
