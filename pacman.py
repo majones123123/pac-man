@@ -6,6 +6,8 @@ class PacMan:
     IMAGE_FILE = Path(__file__).parent / "sprites" / "pacman2.png"
 
     def getImageSpriteList(self, x_start, y_start, num_frames) -> list[pg.Surface]:
+        self.retning=RETNINGER["start"]
+        self.fremtid_retning=None
         full_image = pg.image.load(self.IMAGE_FILE)
         frame_width = 16
         
@@ -41,7 +43,7 @@ class PacMan:
     def draw(self, surface):
 
         # Få bildet fra en liste av bilder (om du vil bruke animasjon/sprites):
-        current_frame_image = self.frames[self.current_frame]
+        current_frame_image = self.frames[self.current_frame%2+self.retning]
         
         # Speiler bildet hvis det trengs:
         if self.venstre:
@@ -54,4 +56,8 @@ class PacMan:
 
         # Blit images på skjermen (der self.rect befinner seg):
         surface.blit(current_frame_image, rect)
+        if self.current_frame%2 == 0:
+            self.current_frame+=1
+        else:
+            self.current_frame-=1
 
