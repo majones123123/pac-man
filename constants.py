@@ -18,10 +18,17 @@ FPS = 60
 
 TILE_SIZE = 32
 
-RETNINGER= {
+RETNINGER_FRAMES= {
     "start":0,
     "høyre":2,
     "venstre":4,
     "opp":6,
     "ned":8
+}
+
+RETNINGER = {
+    "høyre":[0,1],
+    "venstre":[0,-1],
+    "opp":[-1,0],
+    "ned":[1,0]
 }

@@ -9,7 +9,7 @@ vindu = pg.display.set_mode(board.window_size())
 clock = pg.time.Clock()
 
 
-pacman = PacMan(3, 4)
+pacman = PacMan(3, 4, board)
 
 running = True
 while running:
