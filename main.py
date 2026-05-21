@@ -29,7 +29,9 @@ while running:
 
 
     # Tegn objektene våre:
+    pacman.oppdater()
     pacman.draw(vindu)
+    
 
 
     # Har alltid disse med til slutt:
