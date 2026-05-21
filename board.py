@@ -1,7 +1,13 @@
 import pygame as pg
 from constants import *
+
+
+
+
 class Board:
     def __init__(self):
+        font = pg.font.SysFont("Arial", 30)
+        self.score = 0
         self.grid = [
             "#################",
             "#...##.....##...#",
@@ -21,6 +27,7 @@ class Board:
         ]
         self.rows = len(self.grid)
         self.cols = len(self.grid[0])
+        self.poeng_tekst = font.render(str(self.score), True, WHITE)
 
     def window_size(self):
         return self.cols*TILE_SIZE, self.rows*TILE_SIZE
@@ -36,8 +43,7 @@ class Board:
                 
                 if tile == '.':
                     pg.draw.rect(surface, ORANGE, food, border_radius=10)
-
-
+            surface.blit(self.poeng_tekst, (TILE_SIZE, 0))
     def is_road(self, x: int, y: int) -> bool:
         """Returnerer True hvis posisjonen er fri for vegg."""
         if x < 0 or x >= self.cols or y < 0 or y >= self.rows:
