@@ -63,10 +63,10 @@ class PacMan:
 
         # Blit images på skjermen (der self.rect befinner seg):
         surface.blit(current_frame_image, rect)
-        if self.x < -16:
-            self.x = 20*32
-        if self.x > 21*32:
-            self.x = -15
+        if self.x <= -16:
+            self.x = 18*TILE_SIZE-2
+        if self.x >= 18*TILE_SIZE:
+            self.x = -14
     
     def advance_frame(self):
         if self.current_frame == 9:
