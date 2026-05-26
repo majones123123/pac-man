@@ -73,6 +73,11 @@ class PacMan:
             self.current_frame=0
         else:
             self.current_frame+=1
+            
+    def spis_mat(self):
+        
+            
+            
     
     def move(self):
         if RETNINGER[self.retning][0] == -RETNINGER[self.fremtid_retning][0] and RETNINGER[self.retning][1] == -RETNINGER[self.fremtid_retning][1]:
