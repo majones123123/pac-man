@@ -2,6 +2,7 @@ import pygame as pg
 from constants import *
 from board import Board
 from pacman import PacMan
+from ghosts import *
 
 pg.init()
 board = Board()
@@ -10,15 +11,21 @@ clock = pg.time.Clock()
 
 
 pacman = PacMan(3, 4, board)
+red_ghost = Red(3, 4, board)
+
+frame = 0
 
 running = True
 while running:
+    
+    frame += 1
+    
     for event in pg.event.get():
         if event.type == pg.QUIT:
             running = False
         elif event.type == pg.KEYDOWN and event.key == pg.K_ESCAPE:
             running = False
-
+    
     # Tegn bakgrunn: (En slags "reset" av hele vinduet vårt)
     vindu.fill(BLACK)
 
@@ -31,6 +38,10 @@ while running:
     # Tegn objektene våre:
     pacman.oppdater()
     pacman.draw(vindu)
+    
+    red_ghost.draw(vindu)
+    
+    red_ghost.ghost_oppdater()
     
 
 
