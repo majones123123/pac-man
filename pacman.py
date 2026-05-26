@@ -89,7 +89,6 @@ class PacMan:
             self.row=self.y//TILE_SIZE
             if self.board.grid[self.row+RETNINGER[self.fremtid_retning][0]][self.col+RETNINGER[self.fremtid_retning][1]] != "#":
                 self.retning=self.fremtid_retning
-                print("nå")
         xmove=RETNINGER[self.retning][1]
         ymove=RETNINGER[self.retning][0]
         if self.x % TILE_SIZE == 0 and self.y % TILE_SIZE == 0:
