@@ -21,9 +21,11 @@ class Ghost:
             frames.append(frame)
         return frames
 
-    def __init__(self, row, col, board):
+    def __init__(self, row, col, board, pacman):
         self.row = row
         self.col = col
+        
+        self.clock = 0
 
         self.ghostx = col*TILE_SIZE
         self.ghosty = row*TILE_SIZE
@@ -34,6 +36,7 @@ class Ghost:
         self.ghostfremtid_retning="opp"
 
         self.board=board
+        self.pacman = pacman
         
         self.frames_spøkelse = self.getImageSpriteList(0, 64, 8)
         
@@ -91,12 +94,18 @@ class Ghost:
             self.ghosty += ghostYMove*2
             self.ghostx += ghostxmove*2
             self.advance_frame()
-        print(int(self.ghostx), int(self.ghosty))
         
     def ghost_oppdater(self):
-        
-        
-        self.ghostfremtid_retning = r.choice(self.ghostretninger)
+        if abs(self.ghostx - self.pacman.x) < abs(self.ghosty - self.pacman.y):
+            if self.ghosty - self.pacman.y > 0:
+                self.ghostfremtid_retning = "opp"
+            else:
+                self.ghostfremtid_retning = "ned"
+        else:
+            if self.ghostx - self.pacman.x < 0:
+                self.ghostfremtid_retning = "høyre"
+            else:
+                self.ghostfremtid_retning = "venstre"
         
         self.move()
         

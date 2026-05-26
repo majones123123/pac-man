@@ -39,9 +39,9 @@ while running:
     pacman.oppdater()
     pacman.draw(vindu)
     
-    red_ghost.draw(vindu)
     
     red_ghost.ghost_oppdater()
+    red_ghost.draw(vindu)
     
 
 
