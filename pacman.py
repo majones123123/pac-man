@@ -75,8 +75,10 @@ class PacMan:
             self.current_frame+=1
             
     def spis_mat(self):
-        
-            
+        if abs(self.x%TILE_SIZE) <=9 and abs(self.y%TILE_SIZE) <=9:
+            if self.board.grid[round(self.y/TILE_SIZE)][round(self.x/TILE_SIZE)] == ".":
+                self.board.grid[round(self.y/TILE_SIZE)] = self.board.grid[round(self.y/TILE_SIZE)][:round(self.x/TILE_SIZE)] + "_" + self.board.grid[round(self.y/TILE_SIZE)][round(self.x/TILE_SIZE)+1:]
+                self.board.score+=10
             
     
     def move(self):
@@ -99,7 +101,7 @@ class PacMan:
             self.y += ymove*2
             self.x += xmove*2
             self.advance_frame()
-        print(int(self.x), int(self.y))
+
 
 
 
@@ -115,3 +117,4 @@ class PacMan:
             self.fremtid_retning="ned"
         
         self.move()
+        self.spis_mat()
